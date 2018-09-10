@@ -1,0 +1,4 @@
+logging:
+    file: logs/amazon_rank_api_batch.log
+    level:
+        org.springframework.web: INFO
