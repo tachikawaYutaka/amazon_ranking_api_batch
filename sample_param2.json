@@ -1,0 +1,6 @@
+{"service":"AWSECommerceService",
+  "operation":"BrowseNodeLookup",
+  "awsAccessKeyId":"aaaaaaaaaaaaaaaa",
+  "associateTag":"aaaaaaaaaaaaaaaa",
+  "browseNodeId":"2275256051",
+  "responseGroup":"TopSellers"}
