@@ -57,9 +57,27 @@ public class FileSaveService {
         JSONObject jsonData = XML.toJSONObject(responseXml.toString());
 
 
+        //dir 作成
+        File dirPath = new File(dir);
+        if(!dirPath.exists()){
+            if(dirPath.mkdirs()) {
+                logger.info("create dir");
+            }
+        }
         //ファイル作成
         String filePath = dir + File.separator + fileName;
         File newFile = new File(filePath);
+
+        if(!newFile.exists()) {
+            try {
+                if(newFile.createNewFile()) {
+                    logger.info("create file");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                logger.error("can not create file");
+            }
+        }
 
         if(checkBeforeWriteFile(newFile)) {
             // 文字コードを指定する
@@ -79,7 +97,7 @@ public class FileSaveService {
             }
             logger.info("Create " + filePath);
         }else {
-            logger.error("Error Can not write the file");
+            logger.error("Error Can not write the file!");
         }
     }
 
